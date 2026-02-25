@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.25rem;
+    
+    /* Light mode - Clean white with professional blue accents */
+    --background: 1 0 0;
+    --foreground: 0 0 0;
+    --card: 0.99 0.005 230;
+    --card-foreground: 0 0 0;
+    --popover: 1 0 0;
+    --popover-foreground: 0 0 0;
+    
+    /* Primary: Professional deep blue - matches logo */
+    --primary: 0.50 0.15 230;
+    --primary-foreground: 0 0 0;
+    
+    /* Secondary: Brighter blue for accents and highlights */
+    --secondary: 0.65 0.12 230;
+    --secondary-foreground: 0 0 0;
+    
+    /* Muted: Very light blue-tinted gray */
+    --muted: 0.96 0.005 230;
+    --muted-foreground: 0 0 0;
+    
+    /* Accent: Lighter blue for interactive elements */
+    --accent: 0.70 0.10 230;
+    --accent-foreground: 0 0 0;
+    
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 0 0 0;
+    
+    --border: 0.90 0.01 230;
+    --input: 0.90 0.01 230;
+    --ring: 0.65 0.12 230;
+    
+    --chart-1: 0.50 0.15 230;
+    --chart-2: 0.65 0.12 230;
+    --chart-3: 0.70 0.10 230;
+    --chart-4: 0.60 0.10 210;
+    --chart-5: 0.55 0.12 250;
+    
+    --sidebar: 0.99 0.005 230;
+    --sidebar-foreground: 0 0 0;
+    --sidebar-primary: 0.50 0.15 230;
+    --sidebar-primary-foreground: 0 0 0;
+    --sidebar-accent: 0.96 0.005 230;
+    --sidebar-accent-foreground: 0 0 0;
+    --sidebar-border: 0.90 0.01 230;
+    --sidebar-ring: 0.65 0.12 230;
+  }
+
+  .dark {
+    /* Dark mode - Deep navy blue with bright blue highlights */
+    --background: 0.20 0.03 240;
+    --foreground: 0 0 0;
+    --card: 0.25 0.03 240;
+    --card-foreground: 0 0 0;
+    --popover: 0.25 0.03 240;
+    --popover-foreground: 0 0 0;
+    
+    /* Primary: Bright blue for dark mode */
+    --primary: 0.75 0.15 230;
+    --primary-foreground: 0 0 0;
+    
+    /* Secondary: Even brighter blue for accents */
+    --secondary: 0.80 0.12 230;
+    --secondary-foreground: 0 0 0;
+    
+    --muted: 0.30 0.03 240;
+    --muted-foreground: 0 0 0;
+    
+    --accent: 0.70 0.14 230;
+    --accent-foreground: 0 0 0;
+    
+    --destructive: 0.60 0.20 25;
+    --destructive-foreground: 0 0 0;
+    
+    --border: 0.35 0.03 240;
+    --input: 0.35 0.03 240;
+    --ring: 0.75 0.15 230;
+    
+    --chart-1: 0.75 0.15 230;
+    --chart-2: 0.65 0.12 230;
+    --chart-3: 0.70 0.14 230;
+    --chart-4: 0.70 0.10 210;
+    --chart-5: 0.65 0.12 250;
+    
+    --sidebar: 0.25 0.03 240;
+    --sidebar-foreground: 0 0 0;
+    --sidebar-primary: 0.75 0.15 230;
+    --sidebar-primary-foreground: 0 0 0;
+    --sidebar-accent: 0.30 0.03 240;
+    --sidebar-accent-foreground: 0 0 0;
+    --sidebar-border: 0.35 0.03 240;
+    --sidebar-ring: 0.75 0.15 230;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
