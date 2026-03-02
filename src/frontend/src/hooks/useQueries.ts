@@ -1,6 +1,13 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import type {
+  ContactSubmission,
+  Email,
+  FullName,
+  Message,
+  PhoneNumber,
+  ServiceInterest,
+} from "../backend.d";
 import { useActor } from "./useActor";
-import type { ContactSubmission, FullName, Email, PhoneNumber, ServiceInterest, Message } from "../backend.d";
 
 export function useSubmitContactForm() {
   const { actor } = useActor();
@@ -20,7 +27,7 @@ export function useSubmitContactForm() {
         data.email,
         data.phoneNumber,
         data.serviceInterest,
-        data.message
+        data.message,
       );
     },
     onSuccess: () => {
@@ -31,7 +38,7 @@ export function useSubmitContactForm() {
 
 export function useGetAllSubmissions() {
   const { actor, isFetching } = useActor();
-  
+
   return useQuery<ContactSubmission[]>({
     queryKey: ["contactSubmissions"],
     queryFn: async () => {

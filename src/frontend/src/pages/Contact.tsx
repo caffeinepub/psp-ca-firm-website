@@ -1,21 +1,33 @@
-import { useState } from "react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useSubmitContactForm } from "@/hooks/useQueries";
-import { toast } from "sonner";
-import { 
-  Mail, 
-  Phone, 
-  MapPin, 
+import {
+  CheckCircle2,
   Clock,
   Loader2,
-  CheckCircle2,
-  Send
+  Mail,
+  MapPin,
+  Phone,
+  Send,
 } from "lucide-react";
+import { useState } from "react";
+import { toast } from "sonner";
 
 const serviceOptions = [
   "Audit & Assurance",
@@ -26,7 +38,7 @@ const serviceOptions = [
   "Company Registration & Compliance",
   "Financial Planning & Advisory",
   "Business Consulting",
-  "Other"
+  "Other",
 ];
 
 export function Contact() {
@@ -35,7 +47,7 @@ export function Contact() {
     email: "",
     phoneNumber: "",
     serviceInterest: "",
-    message: ""
+    message: "",
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -43,34 +55,44 @@ export function Contact() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    if (!formData.fullName || !formData.email || !formData.phoneNumber || !formData.serviceInterest || !formData.message) {
+
+    if (
+      !formData.fullName ||
+      !formData.email ||
+      !formData.phoneNumber ||
+      !formData.serviceInterest ||
+      !formData.message
+    ) {
       toast.error("Please fill in all required fields");
       return;
     }
 
     try {
       await submitMutation.mutateAsync(formData);
-      toast.success("Thank you! Your message has been sent successfully. We'll get back to you soon.");
+      toast.success(
+        "Thank you! Your message has been sent successfully. We'll get back to you soon.",
+      );
       setIsSubmitted(true);
       setFormData({
         fullName: "",
         email: "",
         phoneNumber: "",
         serviceInterest: "",
-        message: ""
+        message: "",
       });
-      
+
       // Reset success state after 5 seconds
       setTimeout(() => setIsSubmitted(false), 5000);
     } catch (error) {
-      toast.error("Failed to send message. Please try again or contact us directly.");
+      toast.error(
+        "Failed to send message. Please try again or contact us directly.",
+      );
       console.error("Contact form error:", error);
     }
   };
 
   const handleInputChange = (field: string, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
+    setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
   return (
@@ -82,7 +104,8 @@ export function Contact() {
             <div className="h-1 w-20 bg-secondary mb-6" />
             <h1 className="text-5xl md:text-6xl font-bold mb-6">Contact Us</h1>
             <p className="text-xl text-muted-foreground leading-relaxed">
-              Get in touch with us to discuss your financial and compliance requirements
+              Get in touch with us to discuss your financial and compliance
+              requirements
             </p>
           </div>
         </div>
@@ -98,7 +121,8 @@ export function Contact() {
                 <CardHeader>
                   <CardTitle className="text-3xl">Send us a Message</CardTitle>
                   <CardDescription className="text-base">
-                    Fill out the form below and we'll get back to you as soon as possible
+                    Fill out the form below and we'll get back to you as soon as
+                    possible
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -110,7 +134,9 @@ export function Contact() {
                           id="fullName"
                           placeholder="Your full name"
                           value={formData.fullName}
-                          onChange={(e) => handleInputChange("fullName", e.target.value)}
+                          onChange={(e) =>
+                            handleInputChange("fullName", e.target.value)
+                          }
                           disabled={submitMutation.isPending}
                           required
                         />
@@ -122,7 +148,9 @@ export function Contact() {
                           type="email"
                           placeholder="you@example.com"
                           value={formData.email}
-                          onChange={(e) => handleInputChange("email", e.target.value)}
+                          onChange={(e) =>
+                            handleInputChange("email", e.target.value)
+                          }
                           disabled={submitMutation.isPending}
                           required
                         />
@@ -137,16 +165,22 @@ export function Contact() {
                           type="tel"
                           placeholder="+91 98765 43210"
                           value={formData.phoneNumber}
-                          onChange={(e) => handleInputChange("phoneNumber", e.target.value)}
+                          onChange={(e) =>
+                            handleInputChange("phoneNumber", e.target.value)
+                          }
                           disabled={submitMutation.isPending}
                           required
                         />
                       </div>
                       <div className="space-y-2">
-                        <Label htmlFor="serviceInterest">Service Interest *</Label>
+                        <Label htmlFor="serviceInterest">
+                          Service Interest *
+                        </Label>
                         <Select
                           value={formData.serviceInterest}
-                          onValueChange={(value) => handleInputChange("serviceInterest", value)}
+                          onValueChange={(value) =>
+                            handleInputChange("serviceInterest", value)
+                          }
                           disabled={submitMutation.isPending}
                           required
                         >
@@ -171,15 +205,17 @@ export function Contact() {
                         placeholder="Tell us about your requirements..."
                         rows={6}
                         value={formData.message}
-                        onChange={(e) => handleInputChange("message", e.target.value)}
+                        onChange={(e) =>
+                          handleInputChange("message", e.target.value)
+                        }
                         disabled={submitMutation.isPending}
                         required
                       />
                     </div>
 
-                    <Button 
-                      type="submit" 
-                      size="lg" 
+                    <Button
+                      type="submit"
+                      size="lg"
                       disabled={submitMutation.isPending}
                       className="w-full sm:w-auto group"
                     >
@@ -216,8 +252,10 @@ export function Contact() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground leading-relaxed">
-                    Parameswaran P S & Associates<br />
-                    Bangalore, Karnataka<br />
+                    Parameswaran P S & Associates
+                    <br />
+                    Bangalore, Karnataka
+                    <br />
                     India
                   </p>
                 </CardContent>
@@ -231,8 +269,8 @@ export function Contact() {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <a 
-                    href="tel:+919538967951" 
+                  <a
+                    href="tel:+919538967951"
                     className="text-muted-foreground hover:text-secondary transition-colors"
                   >
                     +91 9538967951
@@ -248,11 +286,11 @@ export function Contact() {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <a 
-                    href="mailto:contact@pspcafirm.co.in" 
+                  <a
+                    href="mailto:office@pspcafirm.co.in"
                     className="text-muted-foreground hover:text-secondary transition-colors break-all"
                   >
-                    contact@pspcafirm.co.in
+                    office@pspcafirm.co.in
                   </a>
                 </CardContent>
               </Card>
@@ -266,7 +304,9 @@ export function Contact() {
                 </CardHeader>
                 <CardContent className="space-y-2">
                   <div className="flex justify-between">
-                    <span className="text-muted-foreground">Monday - Friday</span>
+                    <span className="text-muted-foreground">
+                      Monday - Friday
+                    </span>
                     <span className="font-medium">9:00 AM - 6:00 PM</span>
                   </div>
                   <div className="flex justify-between">

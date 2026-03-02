@@ -1,12 +1,6 @@
-import { Link, Outlet, useRouterState } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
-import { 
-  Mail, 
-  Phone, 
-  MapPin,
-  Menu,
-  X
-} from "lucide-react";
+import { Link, Outlet, useRouterState } from "@tanstack/react-router";
+import { Mail, MapPin, Menu, Phone, X } from "lucide-react";
 import { useState } from "react";
 import { SiLinkedin, SiX } from "react-icons/si";
 
@@ -39,16 +33,18 @@ export function Layout() {
           <div className="flex h-20 items-center justify-between">
             {/* Logo */}
             <Link to="/" className="flex items-center space-x-3 group">
-              <img 
-                src="/assets/uploads/NEw1-1.png" 
-                alt="Parameswaran P S & Associates" 
+              <img
+                src="/assets/uploads/NEw1-1.png"
+                alt="Parameswaran P S & Associates"
                 className="h-12 w-auto object-contain"
               />
               <div className="flex flex-col">
                 <span className="text-xl font-display font-bold tracking-tight group-hover:text-secondary transition-colors">
                   Parameswaran P S & Associates
                 </span>
-                <span className="text-xs text-muted-foreground">Chartered Accountants</span>
+                <span className="text-xs text-muted-foreground">
+                  Chartered Accountants
+                </span>
               </div>
             </Link>
 
@@ -71,6 +67,7 @@ export function Layout() {
 
             {/* Mobile Menu Button */}
             <button
+              type="button"
               className="md:hidden p-2 rounded-md hover:bg-accent"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle menu"
@@ -119,18 +116,23 @@ export function Layout() {
             {/* Company Info */}
             <div className="space-y-4">
               <div className="flex items-center space-x-3">
-                <img 
-                  src="/assets/uploads/NEw1-1.png" 
-                  alt="Parameswaran P S & Associates" 
+                <img
+                  src="/assets/uploads/NEw1-1.png"
+                  alt="Parameswaran P S & Associates"
                   className="h-10 w-auto object-contain"
                 />
                 <div className="flex flex-col">
-                  <span className="text-lg font-display font-bold">Parameswaran P S & Associates</span>
-                  <span className="text-xs text-muted-foreground">Chartered Accountants</span>
+                  <span className="text-lg font-display font-bold">
+                    Parameswaran P S & Associates
+                  </span>
+                  <span className="text-xs text-muted-foreground">
+                    Chartered Accountants
+                  </span>
                 </div>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Professional chartered accountant services for businesses and individuals across India.
+                Professional chartered accountant services for businesses and
+                individuals across India.
               </p>
             </div>
 
@@ -178,14 +180,20 @@ export function Layout() {
                 </li>
                 <li className="flex items-center gap-2 text-sm">
                   <Phone className="h-4 w-4 shrink-0 text-secondary" />
-                  <a href="tel:+919538967951" className="text-muted-foreground hover:text-secondary transition-colors">
+                  <a
+                    href="tel:+919538967951"
+                    className="text-muted-foreground hover:text-secondary transition-colors"
+                  >
                     +91 9538967951
                   </a>
                 </li>
                 <li className="flex items-center gap-2 text-sm">
                   <Mail className="h-4 w-4 shrink-0 text-secondary" />
-                  <a href="mailto:contact@pspcafirm.co.in" className="text-muted-foreground hover:text-secondary transition-colors break-all">
-                    contact@pspcafirm.co.in
+                  <a
+                    href="mailto:office@pspcafirm.co.in"
+                    className="text-muted-foreground hover:text-secondary transition-colors break-all"
+                  >
+                    office@pspcafirm.co.in
                   </a>
                 </li>
               </ul>
@@ -196,9 +204,9 @@ export function Layout() {
           <div className="pt-8 border-t flex flex-col sm:flex-row justify-between items-center gap-4">
             <p className="text-sm text-muted-foreground text-center sm:text-left">
               © 2026. Built with <span className="text-secondary">♥</span> using{" "}
-              <a 
-                href="https://caffeine.ai" 
-                target="_blank" 
+              <a
+                href="https://caffeine.ai"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-secondary transition-colors"
               >

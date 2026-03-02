@@ -1,75 +1,90 @@
-import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { 
-  FileText, 
-  Receipt, 
-  Building2, 
-  Calculator, 
-  Users, 
-  TrendingUp,
-  CheckCircle2,
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Link } from "@tanstack/react-router";
+import {
   ArrowRight,
-  Shield,
   Award,
-  Target
+  Building2,
+  Calculator,
+  CheckCircle2,
+  FileText,
+  Receipt,
+  Shield,
+  Target,
+  TrendingUp,
+  Users,
 } from "lucide-react";
 
 const services = [
   {
     icon: FileText,
     title: "Audit & Assurance",
-    description: "Comprehensive audit services ensuring compliance and financial accuracy for your business.",
-    href: "/services#audit"
+    description:
+      "Comprehensive audit services ensuring compliance and financial accuracy for your business.",
+    href: "/services#audit",
   },
   {
     icon: Receipt,
     title: "Income Tax Services",
-    description: "Expert tax planning, filing, and advisory services for individuals and businesses.",
-    href: "/services#income-tax"
+    description:
+      "Expert tax planning, filing, and advisory services for individuals and businesses.",
+    href: "/services#income-tax",
   },
   {
     icon: Calculator,
     title: "GST Compliance",
-    description: "Complete GST registration, filing, and advisory services to keep you compliant.",
-    href: "/services#gst"
+    description:
+      "Complete GST registration, filing, and advisory services to keep you compliant.",
+    href: "/services#gst",
   },
   {
     icon: Building2,
     title: "Corporate Tax",
-    description: "Strategic corporate tax planning and compliance for businesses of all sizes.",
-    href: "/services#corporate-tax"
+    description:
+      "Strategic corporate tax planning and compliance for businesses of all sizes.",
+    href: "/services#corporate-tax",
   },
   {
     icon: Users,
     title: "Accounting & Bookkeeping",
-    description: "Professional bookkeeping and accounting services to maintain accurate financial records.",
-    href: "/services#accounting"
+    description:
+      "Professional bookkeeping and accounting services to maintain accurate financial records.",
+    href: "/services#accounting",
   },
   {
     icon: TrendingUp,
     title: "Financial Advisory",
-    description: "Expert financial planning and advisory to help you achieve your business goals.",
-    href: "/services#advisory"
-  }
+    description:
+      "Expert financial planning and advisory to help you achieve your business goals.",
+    href: "/services#advisory",
+  },
 ];
 
 const features = [
   {
     icon: Award,
     title: "Expert Professionals",
-    description: "Qualified chartered accountants with extensive experience in Indian taxation and compliance."
+    description:
+      "Qualified chartered accountants with extensive experience in Indian taxation and compliance.",
   },
   {
     icon: Shield,
     title: "Trust & Integrity",
-    description: "Committed to maintaining the highest standards of professional ethics and confidentiality."
+    description:
+      "Committed to maintaining the highest standards of professional ethics and confidentiality.",
   },
   {
     icon: Target,
     title: "Client-Focused",
-    description: "Personalized solutions tailored to meet your unique financial and business requirements."
-  }
+    description:
+      "Personalized solutions tailored to meet your unique financial and business requirements.",
+  },
 ];
 
 export function Home() {
@@ -78,36 +93,37 @@ export function Home() {
       {/* Hero Section */}
       <section className="relative py-20 md:py-32 lg:py-40 overflow-hidden">
         {/* Background Image */}
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: 'url(/assets/uploads/1133960_OQECWT0-1.jpg)',
-            backgroundPosition: 'center center'
+            backgroundImage: "url(/assets/uploads/1133960_OQECWT0-1.jpg)",
+            backgroundPosition: "center center",
           }}
         />
-        
+
         {/* Light Overlay for Text Readability with Black Text */}
         <div className="absolute inset-0 bg-gradient-to-br from-white/95 via-white/90 to-white/95" />
-        
+
         {/* Decorative Elements */}
         <div className="absolute top-20 right-0 w-96 h-96 bg-secondary/10 rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
-        
+
         <div className="container relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-8">
             <div className="inline-block">
               <div className="h-1 w-24 bg-secondary mx-auto mb-6" />
             </div>
-            
+
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-balance text-black">
               Your Trusted Financial
               <span className="block text-black mt-2">Partner in India</span>
             </h1>
-            
+
             <p className="text-xl md:text-2xl text-black max-w-2xl mx-auto text-balance">
-              Expert chartered accountant services for businesses and individuals across India
+              Expert chartered accountant services for businesses and
+              individuals across India
             </p>
-            
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
               <Button asChild size="lg" className="group shadow-xl">
                 <Link to="/contact">
@@ -115,10 +131,13 @@ export function Home() {
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="border-2 shadow-lg">
-                <Link to="/services">
-                  Our Services
-                </Link>
+              <Button
+                asChild
+                variant="outline"
+                size="lg"
+                className="border-2 shadow-lg"
+              >
+                <Link to="/services">Our Services</Link>
               </Button>
             </div>
           </div>
@@ -132,7 +151,9 @@ export function Home() {
             <div className="inline-block">
               <div className="h-1 w-16 bg-secondary mx-auto mb-4" />
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Our Services</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              Our Services
+            </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               Comprehensive financial and compliance solutions for your business
             </p>
@@ -142,8 +163,8 @@ export function Home() {
             {services.map((service) => {
               const Icon = service.icon;
               return (
-                <Card 
-                  key={service.title} 
+                <Card
+                  key={service.title}
                   className="group hover:shadow-lg transition-all duration-300 border-l-4 border-l-transparent hover:border-l-secondary"
                 >
                   <CardHeader>
@@ -180,7 +201,9 @@ export function Home() {
             <div className="inline-block">
               <div className="h-1 w-16 bg-secondary mx-auto mb-4" />
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Why Choose Parameswaran P S & Associates</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              Why Choose Parameswaran P S & Associates
+            </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               Delivering excellence in every engagement
             </p>
@@ -213,7 +236,8 @@ export function Home() {
               Ready to get started?
             </h2>
             <p className="text-xl text-black text-balance">
-              Contact us today to discuss how we can help you achieve your financial goals
+              Contact us today to discuss how we can help you achieve your
+              financial goals
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" variant="secondary" className="group">
@@ -222,10 +246,13 @@ export function Home() {
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="bg-transparent border-black/20 hover:bg-black/10 text-black">
-                <Link to="/about">
-                  Learn More About Us
-                </Link>
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="bg-transparent border-black/20 hover:bg-black/10 text-black"
+              >
+                <Link to="/about">Learn More About Us</Link>
               </Button>
             </div>
           </div>

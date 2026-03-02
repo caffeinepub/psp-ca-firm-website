@@ -1,11 +1,16 @@
-import { RouterProvider, createRouter, createRoute, createRootRoute } from "@tanstack/react-router";
-import { ThemeProvider } from "next-themes";
-import { Toaster } from "@/components/ui/sonner";
 import { Layout } from "@/components/Layout";
-import { Home } from "@/pages/Home";
-import { Services } from "@/pages/Services";
+import { Toaster } from "@/components/ui/sonner";
 import { About } from "@/pages/About";
 import { Contact } from "@/pages/Contact";
+import { Home } from "@/pages/Home";
+import { Services } from "@/pages/Services";
+import {
+  RouterProvider,
+  createRootRoute,
+  createRoute,
+  createRouter,
+} from "@tanstack/react-router";
+import { ThemeProvider } from "next-themes";
 
 // Root route with Layout
 const rootRoute = createRootRoute({
